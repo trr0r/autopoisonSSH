@@ -1,4 +1,3 @@
-
 # Log Poisoning SSH → Automated Reverse Shell
 
 [Herramienta](<autopoisonSSH.py>) escrita en **python** que nos permite obtener una **Reverse Shell** de manera automatizada gracias al envenenamiento de los logs relacionados con **SSH** como lo pueden ser el **auth.loh** o **btmp** a través de un **LFI** (Local File Inclusion).
