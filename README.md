@@ -48,6 +48,6 @@ python3 autopoisonSSH.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1
 ---
 ### Advertencia legal
 
-[!IMPORTANT]
+[!WARNING]
 
 Este software está destinado solo para uso personal y debe utilizarse únicamente en entornos controlados y con autorización previa. El empleo de esta herramienta en sistemas o redes sin la debida autorización puede ser ilegal y contravenir políticas de seguridad. El desarrollador no se hace responsable de daños, pérdidas o consecuencias resultantes de su uso inapropiado o no autorizado. Antes de utilizar esta herramienta, asegúrate de cumplir con todas las leyes y regulaciones locales pertinentes.
