@@ -2,7 +2,7 @@
 
 [Herramienta](<autopoisonSSH.py>) escrita en **python** que nos permite obtener una **Reverse Shell** de manera automatizada gracias al envenenamiento de los logs relacionados con **SSH** como lo pueden ser el **auth.loh** o **btmp** a través de un **LFI** (Local File Inclusion).
 
-Las opciones disponibles son las siguiente:
+Las opciones disponibles son las siguientes:
 
 ```
 usage: autoposionSSH.py [-h] -u TARGET_URL -pm TARGET_PARAM -t-ip TARGET_IP -h-ip HOST_IP [-p TARGET_PORT] [-p-ssh TARGET_SSH_PORT] [-l LISTEN_PORT]
