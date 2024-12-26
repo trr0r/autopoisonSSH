@@ -26,10 +26,13 @@ options:
 ---
 ## Download
 
+Nos clonamos el repositorio de la siguiente forma:
 ```bash
 git clone https://github.com/Trr0r/autopoisonSSH
+cd autopoisonSSH
 ```
 
+Instalamos las librerías necesarias gracias a **pip3**:
 ```bash
 pip3 install -r requirements.txt
 ```
