@@ -1,0 +1,6 @@
+paramiko
+argformat
+argparse
+requests
+termcolor
+pwntools
