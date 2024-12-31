@@ -24,7 +24,14 @@ options:
 ```
 
 ---
-## Download
+## ¿Por que usar este Proyecto?
+
+En el caso de que queramos explotar un **Log Poisoning** de la manera tradicional nos encontraremos con el inconveniente que vemos en la siguiente captura de pantalla por lo que gracias a este script evitaremos este error al usar la librería **paramiko** de **python**.
+
+![Pasted image 20240806161520](https://github.com/user-attachments/assets/73c86309-aaa0-442f-afe7-33b87c10b374)
+
+---
+## Descarga
 
 Nos clonamos el repositorio de la siguiente forma:
 ```bash
@@ -38,12 +45,17 @@ pip3 install -r requirements.txt
 ```
 
 ---
-## Use
+## Uso
+
+En primer lugar debemos detecar la ruta donde se acontecede el **LFI**:
+
+![Pasted image 20240806161403](https://github.com/user-attachments/assets/9238bfd1-c0f2-4eef-abbf-6729aa0457ca)
+
+En segundo y último lugar ejecutaremos el script de la siguiente forma:
 
 ```shell
 python3 autopoisonSSH.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1 -h-ip 172.17.0.2
 ```
-
 
 ![Pasted image 20241226190954](https://github.com/user-attachments/assets/756a9fed-e7e5-4718-95a6-3975a1e77ca8)
 
