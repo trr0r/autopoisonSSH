@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Autor: Alvaro Bernal (aka. trr0r)
+
 import paramiko, sys, argparse, requests, signal, shutil
 from argparse import RawTextHelpFormatter
 from termcolor import colored
