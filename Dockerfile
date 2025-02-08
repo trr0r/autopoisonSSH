@@ -1,6 +1,7 @@
-FROM tools/ssh_logpoisoning
-# Abrimos el puerto y 22
-EXPOSE 80, 22
+FROM trr0r/ssh_logpoisoning:latest
 
-# Ejecutaremos el script para tenerlo todo montado
-CMD /bin/bash /.entrypoint
+# Estarán abiertos los puertos 80 y 22
+EXPOSE 80 22
+
+# Ejecutamos el script entrypoint para levantar los servicios necesarios
+ENTRYPOINT ["/bin/bash", "/.entrypoint"]

