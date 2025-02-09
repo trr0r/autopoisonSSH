@@ -61,11 +61,13 @@ python3 autopoisonSSH.py -u "http://172.17.0.2/index.php?filename" -t-ip 172.17.
 ---
 ## Puesta en Práctica
 
-[Dockerfile](Dockerfile)
+Una vez que tengamos el [Dockerfile](Dockerfile) descargado, ejecutaremos el siguiente comando posicionándonos en el mismo directorio donde se encuentra el [Dockerfile](Dockerfile).
 
 ```bash
 docker build -t logpoisoning_image .
 ```
+
+Tras correr el anterior comando, finalmente montaremos el contenedor gracias a la siguiente instrucción.
 
 ```bash
 docker run -dit --name ssh_logpoisoning logpoisoning_image
