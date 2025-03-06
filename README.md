@@ -4,7 +4,7 @@
 
 Las opciones disponibles son las siguientes:
 
-```bash
+```ps
 usage: autopoisonSSH.py [-h] -u TARGET_URL -t-ip TARGET_IP -h-ip HOST_IP [-p TARGET_PORT] [-p-ssh TARGET_SSH_PORT] [-l LISTEN_PORT]
 
 ☠️ SSH Log Poisoning with LFI → Automated Reverse Shell ☠️
