@@ -25,7 +25,7 @@ options:
 ---
 ## ¿Por que usar este Proyecto?
 
-En el caso de que queramos explotar un **Log Poisoning** de la manera tradicional nos encontraremos con el inconveniente que vemos en la captura de pantalla por lo que con el uso de este script evitaremos dicho incovenintente gracias a la librería **paramiko** de **python**.
+En el caso de que queramos explotar un **Log Poisoning** de la manera tradicional nos encontraremos con el inconveniente que vemos en la captura de pantalla por lo que con el uso de este script evitaremos dicho inconveniente gracias a la librería **paramiko** de **python**.
 
 ![Pasted image 20240806161520](https://github.com/user-attachments/assets/73c86309-aaa0-442f-afe7-33b87c10b374)
 
