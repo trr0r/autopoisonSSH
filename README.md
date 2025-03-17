@@ -46,7 +46,7 @@ pip3 install -r requirements.txt
 ---
 ## Uso
 
-En primer lugar debemos detecar la ruta donde se acontecede el **LFI**:
+En primer lugar debemos detectar la ruta donde se acontece el **LFI**:
 
 ![Pasted image 20240806161403](https://github.com/user-attachments/assets/9238bfd1-c0f2-4eef-abbf-6729aa0457ca)
 
